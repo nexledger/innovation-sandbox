@@ -1,0 +1,48 @@
+---
+test:
+  name: custom
+  description: This is an example benchmark for caliper, to test the custom chaincode.
+  clients:
+    type: local
+    number: 5
+  rounds:
+  - label: ping
+    txNumber:
+    - 100
+    - 500
+    - 1000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 10
+    - type: fixed-rate
+      opts:
+        tps: 50
+    - type: fixed-rate
+      opts:
+        tps: 100
+    callback: benchmark/custom/ping.js
+  - label: pong
+    txNumber:
+    - 100
+    - 200
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 10
+    - type: fixed-rate
+      opts:
+        tps: 20
+    callback: benchmark/custom/pong.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1
