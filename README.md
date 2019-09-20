@@ -51,7 +51,7 @@ To modify test configuration, please check the `Configuration File` section on t
 It need to following works to run custom chaincode on the innovation-sandbox.
 
 1. Apply batchutil to your chaincode to be compatible with the Accelerator.
-2. Add your chaincode information to Accelerator configuration. The configuration file is located at `caliper/network/fabric-v1.2/1org2peeraccelerator/accelerator.yaml`.
+2. Add your chaincode information to Accelerator configuration. The configuration file is located at `caliper/network/fabric-v1.4/1org2peeraccelerator/accelerator.yaml`.
 3. Write a benchmark for your chaincode. please refer to the sample benchmark `caliper/benchmark/custom`.
 4. Add your chaincode and benchmark information into the blockchain configuration file, `fabric-go.json`. then run the test with your benchmark. 
 
